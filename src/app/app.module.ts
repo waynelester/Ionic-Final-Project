@@ -6,6 +6,8 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
+import { Camera } from '@ionic-native/camera';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MapsProvider } from '../providers/maps/maps';
@@ -30,7 +32,8 @@ import { MapsProvider } from '../providers/maps/maps';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    MapsProvider
+    MapsProvider,
+    Camera
   ]
 })
 export class AppModule {}
