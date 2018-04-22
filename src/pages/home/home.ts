@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
- 
+import { Geolocation } from '@ionic-native/geolocation';
+
 declare var google;
  
 @Component({
@@ -12,7 +13,8 @@ export class HomePage {
   @ViewChild('map') mapElement: ElementRef;
   map: any;
  
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+              public geolocation: Geolocation) {
  
   }
  
@@ -33,4 +35,28 @@ export class HomePage {
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
  
   }
+  addMarker(){
+ 
+  let marker = new google.maps.Marker({
+    map: this.map,
+    animation: google.maps.Animation.DROP,
+    position: this.map.getCenter()
+  });
+ 
+  let content = "<h4>Information!</h4>";         
+ 
+  this.addInfoWindow(marker, content);
+ 
+}
+addInfoWindow(marker, content){
+ 
+  let infoWindow = new google.maps.InfoWindow({
+    content: content
+  });
+ 
+  google.maps.event.addListener(marker, 'click', () => {
+    infoWindow.open(this.map, marker);
+  });
+ 
+}
 }

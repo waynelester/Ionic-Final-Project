@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
 import { Camera } from '@ionic-native/camera';
+import { Geolocation } from '@ionic-native/geolocation';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -33,6 +34,7 @@ import { MapsProvider } from '../providers/maps/maps';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MapsProvider,
+    Geolocation,
     Camera
   ]
 })
