@@ -9,9 +9,22 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class UserProvider {
+    baseUrl: string = "http://wayne-spring-2018-phortonssf.c9users.io:8080/api";
+    appUsers: string = "/appUsers/";  
+    upsert: string = "/movies/upsertWithWhere?";
+    deleteMovie: string = "/movies/";
+    baseMovies: string = "/movies?access_token=";
+    tokenString: string = "&access_token=";
 
-  constructor(public http: HttpClient) {
+  constructor(public _http: HttpClient) {
     console.log('Hello UserProvider Provider');
   }
-
+  login(user){
+    console.log(user, "logged in")
+        return this._http.post(this.baseUrl + this.appUsers + "login", user);
+}
+register(user){
+    console.log(user, "registered")
+    return this._http.post(this.baseUrl + this.appUsers, user);
+}
 }
