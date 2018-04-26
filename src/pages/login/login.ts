@@ -1,14 +1,16 @@
 import { Component } from '@angular/core';
 import { UserProvider } from '../../providers/user/user';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
+import { NavController, NavParams } from 'ionic-angular';
+import { TabsPage } from '../tabs/tabs';
+import { RegisterPage } from '../register/register';
+//import { HomePage } from '../home/home';
 
-@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
 })
 export class LoginPage {
+
   user: any = {};
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
@@ -24,10 +26,14 @@ export class LoginPage {
     .subscribe(
       (userRes: any ) =>{ 
         console.log(userRes, "reg");
-        this.navCtrl.push(HomePage);
+        //this.navCtrl.push(HomePage);
+        this.navCtrl.setRoot(TabsPage);
         sessionStorage.setItem('token', userRes.token);
         sessionStorage.setItem('userId', userRes.userId);
       
       }
     )}
+    regNav() {
+      this.navCtrl.push(RegisterPage)
+    }
 }
