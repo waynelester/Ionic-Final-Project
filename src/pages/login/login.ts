@@ -25,8 +25,8 @@ export class LoginPage {
     this._user.login(this.user)
     .subscribe(
       (userRes: any ) =>{ 
-        console.log(userRes, "reg");
-        //this.navCtrl.push(HomePage);
+        console.log("userRes", userRes);
+      //  this.navCtrl.push(HomePage);
         this.navCtrl.setRoot(TabsPage);
         sessionStorage.setItem('token', userRes.token);
         sessionStorage.setItem('userId', userRes.userId);

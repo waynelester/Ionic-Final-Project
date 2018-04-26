@@ -6,7 +6,7 @@ declare var google;
 
 
 @Component({
-  selector: 'page-map',
+  selector: 'map-page',
   templateUrl: 'map.html',
 })
 export class MapPage {
@@ -16,7 +16,6 @@ export class MapPage {
  
   constructor(public navCtrl: NavController, 
               public geolocation: Geolocation) {
- 
   }
  
   ionViewDidLoad(){
@@ -24,6 +23,7 @@ export class MapPage {
   }
  
   loadMap(){
+    console.log("loadMap ran on start")
     this.geolocation.getCurrentPosition().then((position) => {
  
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
