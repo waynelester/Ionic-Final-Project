@@ -26,8 +26,8 @@ export class LoginPage {
     .subscribe(
       (userRes: any ) =>{ 
         console.log("userRes", userRes);
-      //  this.navCtrl.push(HomePage);
-        this.navCtrl.setRoot(TabsPage);
+       //this.navCtrl.push(HomePage);
+       this.navCtrl.setRoot(TabsPage);
         sessionStorage.setItem('token', userRes.token);
         sessionStorage.setItem('userId', userRes.userId);
       

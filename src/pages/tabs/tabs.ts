@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
 import { FavoritesPage } from '../favorites/favorites';
-import { MapPage } from '../map/map';
+//import { MapPage } from '../map/map';
 
 @Component({
   selector: 'page-tabs',
@@ -11,7 +11,7 @@ import { MapPage } from '../map/map';
 })
 export class TabsPage {
 
-  mapRoot: any = MapPage;
+  //mapRoot: any = MapPage;
   homeRoot: any = HomePage;
   favoritesRoot: any = FavoritesPage;
 
