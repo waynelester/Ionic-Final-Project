@@ -13,6 +13,7 @@ export class HomePage {
   @ViewChild('map') mapElement: ElementRef;
   map: any;
   infowindow: any;
+  
   options = {
     enableHighAccuracy: true,
     timeout: 5000,
@@ -24,14 +25,17 @@ export class HomePage {
   }
  
   ionViewDidLoad(){
-    this.loadMap();
-    //this.addMarker();
+     this.loadMap();
+    //console.log(GeolocationMarker);
+    
   }
  
   loadMap(){
     console.log("loadMap ran on start")
     this.geolocation.getCurrentPosition().then((position) => {
- 
+      
+      //var GeoMarker = new GeolocationMarker(this.map);
+      //console.log(GeoMarker);
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
  
       let mapOptions = {
@@ -44,15 +48,17 @@ export class HomePage {
         radius: '500',
         type: ['restaurant']
       }
+      
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
- 
+      this.addMarker();
+      
       
     }, (err) => {
       console.log(err);
     });
- 
+    
     function createMarker(place) {
-      let that = this;
+    let that = this;
       var placeLoc = place.geometry.location;
       var marker = new google.maps.Marker({
         map: this.map,
@@ -102,4 +108,31 @@ export class HomePage {
       this.addInfoWindow(marker, content);
      
     }
+
+    // initMap() {
+    //   navigator.geolocation.getCurrentPosition((location) => {
+    //     console.log(location);
+    //     map = new google.maps.Map(this.mapElement.nativeElement, {
+    //       center: {lat: location.coords.latitude, lng: location.coords.longitude},
+    //       zoom: 15
+    //     });
+    
+    //     infowindow = new google.maps.InfoWindow();
+    //     var service = new google.maps.places.PlacesService(map);
+    //     service.nearbySearch({
+    //       location: {lat: location.coords.latitude, lng: location.coords.longitude},
+    //       radius: 1000,
+    //       type: ['store']
+    //     }, (results,status) => {
+    //       if (status === google.maps.places.PlacesServiceStatus.OK) {
+    //         for (var i = 0; i < results.length; i++) {
+    //           this.createMarker(results[i]);
+    //         }
+    //       }
+    //     });
+    //   }, (error) => {
+    //     console.log(error);
+    //   }, options);
+    //   var myplace = {lat: -33.8665, lng: 151.1956};
+    // }
 }

@@ -24,10 +24,28 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "favorites": {
+      "type": "hasMany",
+      "model": "favorites",
+      "foreignKey": "userId"
+    }
+  },
   "acls": [
     {
       "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "WRITE",
       "principalType": "ROLE",
       "principalId": "$authenticated",
       "permission": "ALLOW"
