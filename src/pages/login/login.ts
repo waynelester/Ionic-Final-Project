@@ -30,7 +30,6 @@ export class LoginPage {
        this.navCtrl.setRoot(TabsPage);
         sessionStorage.setItem('token', userRes.token);
         sessionStorage.setItem('userId', userRes.userId);
-      
       }
     )}
     regNav() {
