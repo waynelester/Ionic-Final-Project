@@ -43,11 +43,11 @@ export class HomePage {
         zoom: 15,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       }
-      let requestRestaurant = {
-        location: latLng,
-        radius: '500',
-        type: ['restaurant']
-      }
+      // let requestRestaurant = {
+      //   location: latLng,
+      //   radius: '500',
+      //   type: ['restaurant']
+      // }
       
       this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
       this.addMarker();
@@ -70,17 +70,17 @@ export class HomePage {
     // infowindow.open(map, this);
     this.infowindow.setContent('<div><strong>' + place.name + '</strong><br>' +
       'Place ID: ' + place.place_id + '<br>' +
-      place.vicinity + '</div>');
+      place.vicinity + '</div>' + "Add to favorites");
     this.infowindow.open(this.map, marker);
   });
-  // function callback(results, status) {
-  //   if (status == google.maps.places.PlacesServiceStatus.OK) {
-  //     for (var i = 0; i < results.length; i++) {
-  //       var place = results[i];
-  //       this.createMarker(results[i]);
-  //     }
-  //   }
-  // }
+  function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        var place = results[i];
+        this.createMarker(results[i]);
+      }
+    }
+  }
       };
       
     }

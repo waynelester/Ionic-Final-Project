@@ -4,13 +4,13 @@
     "connector": "memory"
   },
   "mLab": {
-    "host": "",
+    "host": "mLab.com",
     "port": 0,
     "url": "mongodb://wayne:BeHereNow34@ds014648.mlab.com:14648/ionic-db",
     "database": "",
     "password": "",
     "name": "mLab",
-    "user": "",
+    "user": "dev",
     "connector": "mongodb"
   }
 }

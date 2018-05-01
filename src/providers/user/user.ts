@@ -22,14 +22,15 @@ register(user){
     console.log(user, "registered")
     return this._http.post(this.url_register, user);
 }
-// addFavorites(place) {
-//     console.log(place, "favorite added")
-//     return this._http.post(this.url_favorite + user.token, place)
-// }
-// books(){
-//     let token = sessionStorage.getItem("token")
-//     console.log("token", token)
-//     this._http.get(this.booksUrl + token )
-//     .subscribe(
-//       res => console.log("res", res)
+
+addfavorites(place){
+    let token = sessionStorage.getItem("token")
+    console.log("token", token)
+    this._http.get(this.url_favorite + token )
+    .subscribe(
+      response => {
+      this._http.post(this.url_favorite + token, place);
+    }
+    );
+}
 }

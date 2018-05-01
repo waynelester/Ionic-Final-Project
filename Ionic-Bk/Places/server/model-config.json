@@ -42,5 +42,9 @@
   "favorites": {
     "dataSource": "mLab",
     "public": true
+  },
+  "appUser": {
+    "dataSource": "mLab",
+    "public": true
   }
 }
