@@ -140,7 +140,7 @@ export class HomePage {
     }
 
     createMarker(place) {
-      function log() { console.log("log") }; 
+      //function log() { console.log("log") }; 
       var placeLoc = place.geometry.location;
       var marker = new google.maps.Marker({
         map: map,
