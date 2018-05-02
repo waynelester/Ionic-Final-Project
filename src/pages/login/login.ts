@@ -26,11 +26,10 @@ export class LoginPage {
     .subscribe(
       (userRes: any ) =>{ 
         console.log("userRes", userRes);
-      //  this.navCtrl.push(HomePage);
-        this.navCtrl.setRoot(TabsPage);
-        sessionStorage.setItem('token', userRes.token);
+       //this.navCtrl.push(HomePage);
+       this.navCtrl.setRoot(TabsPage);
+        sessionStorage.setItem('token', userRes.id);
         sessionStorage.setItem('userId', userRes.userId);
-      
       }
     )}
     regNav() {

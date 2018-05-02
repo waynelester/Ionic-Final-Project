@@ -20,7 +20,7 @@ user: any = {};
     this._user.register(this.user)
     .subscribe( ( userRes: any ) => { 
       console.log(userRes, "res") 
-      this.navCtrl.push(HomePage);
+      //this.navCtrl.push(HomePage);
       this.navCtrl.setRoot(TabsPage);
      sessionStorage.setItem('token', userRes.token);
      sessionStorage.setItem('userId', userRes.userId);

@@ -14,6 +14,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { Camera } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
+//import { GeolocationMarker } from 'geolocation-marker';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
