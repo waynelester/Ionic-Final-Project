@@ -107,8 +107,10 @@ export class HomePage {
       let content = "<h4>You are Here!</h4>";         
      
       this.addInfoWindow(marker, content);
-    }
+      }
+      
     initMap() {
+      
       navigator.geolocation.getCurrentPosition((location) => {
         console.log(location);
         map = new google.maps.Map(this.mapElement.nativeElement, {
@@ -126,6 +128,7 @@ export class HomePage {
           if (status === google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
               this.createMarker(results[i]);
+              
             }
           }
         });
@@ -133,16 +136,18 @@ export class HomePage {
         console.log(error);
       }, options);
       //var myplace = {lat: -33.8665, lng: 151.1956};
-      
+    
     }
+
     createMarker(place) {
+      function log() { console.log("log") }; 
       var placeLoc = place.geometry.location;
       var marker = new google.maps.Marker({
         map: map,
         position: placeLoc
       });
       google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent("<div>"+place.name+"<br><input type='submit' id='butSubmit' value='Add to Faves' onclick='this._user.addFavorite(place)'></div>");
+        infowindow.setContent("<div>"+place.name+"<br><input type='submit' id='butSubmit' value='Add to Faves' onclick='log()'></div>");
         //console.log(this._user.addFavorite());
         infowindow.open(map, this);
       });
@@ -153,5 +158,15 @@ export class HomePage {
         // console.log(place.name);
         // infowindow.open(map, this);
       // });
+      // let mymarker = new google.maps.Marker({
+      //   map: this.map,
+      //   animation: google.maps.Animation.DROP,
+      //   position: this.map.getCenter()
+      // });
+     
+      // let content = "<h4>You are Here!</h4>";         
+     
+      // this.addInfoWindow(marker, content);
     }
+    
 }

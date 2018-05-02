@@ -28,7 +28,7 @@ export class LoginPage {
         console.log("userRes", userRes);
        //this.navCtrl.push(HomePage);
        this.navCtrl.setRoot(TabsPage);
-        sessionStorage.setItem('token', userRes.token);
+        sessionStorage.setItem('token', userRes.id);
         sessionStorage.setItem('userId', userRes.userId);
       }
     )}
